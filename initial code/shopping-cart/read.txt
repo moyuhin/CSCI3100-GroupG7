@@ -1,0 +1,6 @@
+First: Try to use Cookie to record the data, but we got issue
+        --> use Array as sub
+        
+Second(update): Now using Array to record the data
+
+Further Development: Keep trying to use cookieto record the data
