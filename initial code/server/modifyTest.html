@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<body>
+<h1>modify admin name</h1>
+<div>
+    <label for="aID">AdminID</label>
+    <input type="text" class="form-control" name="aID" id="aID" maxlength="11"
+           placeholder="aID"/>
+</div>
+<br/>
+<div>
+    <label for="cName">change Name</label>
+    <input type="text" class="form-control" name="cName" id="cName" 
+           placeholder="cName"/>
+</div>
+<br/>
+
+<div>
+    <button type="submit" name="submit_test" id="submit_test" value="ok" onclick="jsonTest()">OK
+    </button>
+</div>
+
+<div id="result">
+</div>
+
+<script>
+    var xmlhttp;
+
+    function jsonTest() {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        var values = $("input").map(function () {
+            return $(this).val();
+        }).get();
+        var requestValue = JSON.stringify(values);
+        xmlhttp.onreadystatechange = respond;
+        xmlhttp.open("POST", "../modify/test.php", true);
+        xmlhttp.send(requestValue);
+    }
+
+    function respond() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById('result').innerHTML = xmlhttp.responseText;
+        }
+    }
+
+</script>
+
+</body>
+</html>
