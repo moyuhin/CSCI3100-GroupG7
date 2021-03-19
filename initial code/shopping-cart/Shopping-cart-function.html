@@ -3,54 +3,34 @@
 
 	<!-- load CSS File-->
 	<link rel="stylesheet" href="styles.css">
-
+	
 </head>
 
 <body>
+</div>
+<!-- first part, modal when button click-> shopping cart --> 
+<button class="cart" id="modalBtn"> shopping cart </button>
 
-
-<div class="cart">
-<button id="cart_but" class="button button_cart"><img style="position: relative;" src="cart.png" alt="cart button" width="20px" height="20px"></button>
+<!-- content of the Modal -->
+<div id="shopping_cart" class="Modal">
+	<div class="modal-content">
+		<span class="closeBtn" id="close"> &times; </span>
+		<input type="button" id="button2" value="Display" onclick="display_array()"></input>
+		<div id="Result"></div> 
+		<button id="payBtn"> Comfirm and Pay </button>
+	</div>
 </div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+<!-- part2: user input amount and record the item id-->
+<p> button1 </p>
+<input type="number" id="text1" value="1"></input>
+<input type="button" id="button1" value="Enter" onclick="add_element_to_array(document.getElementById('text1').value)"></input><br><br>
+<p> button2 </p>
+<input type="number" id="text2" value="1"></input>
+<input type="button" id="button2" value="Enter" onclick="add_element_to_array(document.getElementById('text2').value)"></input>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("cart_but");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+<!-- load the JS File-->
+<script src="carts.js"></script>
 
 </body>
 </html>
