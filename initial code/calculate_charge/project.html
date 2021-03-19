@@ -1,0 +1,93 @@
+<html>
+<head>
+
+
+</head>
+
+
+<style>
+        .alignleft {
+            float: left;
+        }
+    .alignright {
+        float: right;
+    }
+    </style>
+
+<body>
+<h1>
+Brower name  	
+
+</h1>
+<button class="alignright">Login</button>
+
+
+<br /><br />
+<h2>Shopping Record</h2>
+
+<table>
+
+
+<tr>
+
+<th>Date</td>
+
+<th>Item</td>
+	<th>ID</td>
+		<th>Name</td>
+			<th>Price</td>
+<th>Amount</td>
+</tr>
+
+<tr>
+
+<td>18/3/2021</td>
+
+<td><img src="https://tse1.mm.bing.net/th?id=OIP.OrU_nN41ttcN_yI1LvyUfQHaHa&pid=Api&P=0&w=300&h=300"/>
+<td>33022</td>
+<td>Lays</td>
+<td>35.2</td>
+<td><input type="number" name="amount1" id ="amount1"value="1"/></td>
+
+</tr>
+
+<tr>
+
+<td>15/3/2021</td>
+
+<td><img src="https://tse1.mm.bing.net/th?id=OIP.rf-9WT4Rb5NBF31Dq3v3tAHaHa&pid=Api&P=0&w=300&h=300"/></td>
+<td>33021</td>
+<td>Cape</td>
+<td>20</td>
+<td><input type="number" name="amount2" id="amount2" value="1"/></td>
+
+</tr>
+</table>
+
+<script type="text/javascript">
+var total = 0;
+var a1 = 0;
+var a2 = 0;
+function GetTotal(){
+a1 = document.getElementById('amount1').value
+a2 = document.getElementById('amount2').value
+total = a1 * 35.2 + a2 * 20;
+alert("amount: " + a1 +" Lays and " + a2 + " Cape is recorded");
+}
+  function display(){   
+	alert("You have order " + a1 + " Lays and " + a2 + " Cape, and the Total price is: " + total);
+  }
+</script>
+
+<h1>
+	<input type="submit" class="alignright" onclick="GetTotal()"/>
+	<input type="button" class="alignright" value="display" onclick="display()"/>
+<h1/>
+</body>
+
+
+
+
+
+
+</html>
