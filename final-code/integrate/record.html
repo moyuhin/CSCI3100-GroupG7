@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping More User Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- load CSS File-->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script src="../jslib/jqueryRecord.js"></script>
+
+</head>
+
+<body onload="doesLogin()">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../image/logo.jpg" class="logoImg" alt="">
+        </a>
+    </div>
+    <div class="sidenav">
+
+        <a href="index.html">Back to Home</a>
+
+        <a class="Logined" style="background: lightgrey;" href="index.html" id="logoutBtn" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <div class="tableHeader">
+            <h1>List Orders</h1>
+            <table id="resultTable1"></table>
+        </div>
+        <br>
+        <div class="tableHeader">
+            <h1>Order Detail</h1>
+            <table id="resultTable2"></table>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

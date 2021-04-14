@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping More Login</title>
+    <link rel="stylesheet" href="loginStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        var xmlhttp;
+
+        function checkLogin() {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            var values = $("input").map(function() {
+                return $(this).val();
+            }).get();
+            var requestValue = JSON.stringify(values);
+            xmlhttp.onreadystatechange = respond;
+            xmlhttp.open("POST", "../read/normalUser.php", true);
+            xmlhttp.send(requestValue);
+        }
+
+        function respond() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var obj = JSON.parse(xmlhttp.responseText);
+                console.log(obj);
+                if (obj.success == "false") {
+                    document.getElementById('result').innerHTML = "Wrong account information, try again!"
+                } else {
+                    setCookie("userName", obj.name, 1);
+                    setCookie("userId", obj.userId, 1);
+                    checkNameCookie();
+                    checkIdCookie();
+                    window.location.href = 'index.html';
+                }
+            }
+        }
+
+        function doesLogin() {
+            if (checkNameCookie() != "withoutLogin") {
+                console.log("login");
+                window.location.href = 'index.html';
+            } else {
+                console.log("withoutLogin");
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="doesLogin()">
+    <div class="container">
+        <div class="form-container">
+            <div id="result"></div>
+                <h1 class="title">Shopping More Login</h1>
+            <h2>Please fill in your account information:</h2>
+                <label></label>
+                <br>
+                <br>
+                <input type="text"  placeholder="Username" name="username"/> 
+                <br /><br />
+                <label></label>
+                <input type="password"  placeholder="Password" name="password" /> 
+                <br /><br />
+                <button class="btn" type="submit" name="submit" id="submit" value="Login" onclick="checkLogin()">Login
+                </button>
+                <p>
+                  Don't have an account?<a style="margin: 15px" href="register.html"
+                    ><em>Register</em> </a
+                  ><br />
+                </p>
+                <p>
+                  <a style="margin: 15px" href="forgetPassword.html"
+                    ><em>Forget Password</em> </a
+                  ><br />
+                </p>
+                <p class="backToHome"><a href="index.html">Back to home</a></p>
+            
+        </div>
+    </div>
+      
+
+</body>
+
+</html>

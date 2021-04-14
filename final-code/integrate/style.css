@@ -1,0 +1,229 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    z-index: 30;
+    top: 110px;
+    left: 0;
+    background-color: #eaeaea;
+    padding-top: 20px;
+    box-shadow: -1px 1px 5px black;
+}
+
+.logo {
+    position: absolute;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+
+.logoImg {
+    border: none;
+    width: 200px;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.sidenav a {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 21px;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 18px;
+    padding-left: 30px;
+    color: #14149d;
+    text-align: left;
+}
+
+.sidenav a:hover {
+    background-color: #B2c1c8;
+}
+
+.main {
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
+    z-index: 2;
+}
+
+
+.header {
+    padding: 20px;
+    text-align: right;
+    color: white;
+    font-size: 30px;
+    box-shadow: -1px 1px 5px black;
+}
+
+
+
+.item {
+    border: 2px solid black;
+    margin: 5px;
+    padding: 10px;
+    box-shadow: -5px 5px 3px #888888;
+    font-size: 25px;
+}
+
+.pro_pic {
+    height: 200px;
+    width: 200px;
+    left: 10px;
+    vertical-align: middle;
+}
+
+.pro_name {
+    left: 250px;
+    font-size: 20px;
+}
+
+
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    height: 100%;
+    width: 85%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    margin: 20% auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+.closeBtn:hover,
+.closeBtn.focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+h2 {
+    text-align: center;
+}
+
+#notCh2{
+    text-align: left;
+}
+
+.details {
+    width: 20%;
+}
+
+td {
+    text-align: center;
+}
+
+.tableHeader h1{
+    padding-left: 30px;
+}
+
+.userInfo{
+    padding-left: 30px;
+    text-align: left;
+}
+
+.changePW{
+    margin-left: 25px;
+    text-align: left;
+}
+
+.item span {
+    margin-left: 15px;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset],
+{
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+}
+
+input[type=password]{
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+}
+
+button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+}
+
+
+
+#modalBtn {
+    position: fixed;
+    top: calc(80%);
+    right: 20px;
+    z-index: 99;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    opacity: 0.91;
+}
+
+.detail {
+    padding: 12px 20px;
+}
+
+tr:hover {
+    background-color: lightgrey;
+}

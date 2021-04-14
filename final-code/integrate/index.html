@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping More</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../jslib/jqueryMain.js"></script>
+    <script src="main.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        function doesLogin() {
+            if (checkNameCookie() != "withoutLogin") {
+                document.getElementsByClassName('noLogin')[0].style.visibility = 'hidden';
+                document.getElementsByClassName('noLogin')[1].style.visibility = 'hidden';
+                document.getElementById('logoutBtn').innerHTML = checkNameCookie() + " : Logout";
+            } else {
+                document.getElementsByClassName('Logined')[0].style.visibility = 'hidden';
+                document.getElementsByClassName('Logined')[1].style.visibility = 'hidden';
+                document.getElementsByClassName('Logined')[2].style.visibility = 'hidden';
+                document.getElementsByClassName('Logined')[3].style.visibility = 'hidden';
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="doesLogin()">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../image/logo.jpg" class="logoImg" alt="">
+        </a>
+    </div>
+
+    <div class="sidenav">
+
+        <a class="tablink" id="recommendOpen">Recommend</a>
+        <a class="tablink" id="MeatOpen">Meat</a>
+        <a class="tablink" id="VegetableOpen">Vegetable</a>
+        <a class="tablink" id="FruitOpen">Fruit</a>
+        <a class="tablink" id="SnackOpen">Snacks</a>
+        <a class="tablink" id="AlocholOpen">Alochol</a>
+        <a class="Logined" href="record.html">Order Records</a>
+        <a class="Logined" href="changeAccount.html">Account setting</a>
+        <a class="noLogin" style="background: lightgrey;" href="login.html">Login</a>
+        <a class="Logined" style="background: lightgrey;" href="index.html" id="logoutBtn" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+
+        <div id="resultTable">
+
+        </div>
+
+
+        <!--Modal content -->
+        <button class="cart" id="modalBtn" onclick="openModal()"> Your cart </button>
+
+        <div style="display: none;" id="shopping_cart" class="modal">
+            <div class="modal-content">
+                <span class="closeBtn" id="close" onclick="closeModal()"> &times; </span>
+                <div id="Result"></div>
+                <br>
+                <button class="Logined" id="payBtn" onclick="setOrder(checkIdCookie());"> Confirm Order </button>
+                <br>
+                <span class="noLogin">Please login before create order</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
