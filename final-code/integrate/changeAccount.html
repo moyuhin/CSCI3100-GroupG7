@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping More User Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- load CSS File-->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script src="../jslib/jqueryAccount.js"></script>
+    <script>
+        var xmlhttp;
+        
+        function checkChangePW() {
+            console.log("cR");
+            var opw = document.getElementById("o-password").value;
+            var pw = document.getElementById("password").value;
+            var pw2 = document.getElementById("c-password").value;
+            if (opw == "") {
+                document.getElementById("errorMsg").innerText = "  Please Input the old password!!";
+                return;
+            }
+            if (pw.indexOf(' ') >= 0) {
+                document.getElementById("errorMsg").innerText = "  Whitespace is not allowed for the password";
+                return;
+            } else if (pw == "") {
+                document.getElementById("errorMsg").innerText = "  Please Input the new password!!";
+                return;
+            }
+
+            if (pw != document.getElementById("c-password").value) {
+                document.getElementById("errorMsg").innerText = "The repeat password is not the same as the password!";
+                return;
+            }
+            document.getElementById("errorMsg").innerText = "";
+            doChangePW();
+            console.log("cR3");
+        }
+
+        function doChangePW() {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            var values = $("input").map(function() {
+                return $(this).val();
+            }).get();
+            var values = Array();
+            values[0]=checkIdCookie();
+            values[1]=document.getElementById("password").value;
+            values[2]=document.getElementById("o-password").value;
+            var requestValue = JSON.stringify(values);
+            xmlhttp.onreadystatechange = respond;
+            xmlhttp.open("POST", "../modify/normalUserById.php", true);
+            xmlhttp.send(requestValue);
+        }
+
+        function respond() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var obj = JSON.parse(xmlhttp.responseText);
+                console.log(obj);
+                if (obj.success == "false") {
+                    document.getElementById('errorMsg').innerHTML = "Wrong Old Password, try again!"
+                } else {
+                    alert("account password change successfully");
+                    window.location.href = 'changeAccount.html';
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="doesLogin()">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../image/logo.jpg" class="logoImg" alt="">
+        </a>
+    </div>
+    <div class="sidenav">
+
+        <a href="index.html">Back to Home</a>
+
+        <a class="Logined" style="background: lightgrey;" href="index.html" id="logoutBtn" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <div class="tableHeader">
+           <br><br>
+            <h1>User Information</h1>
+            <br>
+            <div class="userInfo">
+                <h3 id="showId"></h3>
+                <h3 id="showName"></h3>
+                <h3 id="showEmail"></h3>
+            </div>
+        </div>
+        <br>
+           <div class="changePW">
+            <h2 id="notCh2">Change Password</h2>
+             <p id="errorMsg"></p>
+             <br>
+              <input type="password" placeholder="Old Password" name="o-password" id="o-password" /> <br /><br />
+                <label></label><br />
+               <input type="password" placeholder="Password" name="password" id="password" /> <br /><br />
+                <label></label><br />
+                <input type="password" placeholder="Confirm Password" name="c-password" id="c-password" /> <br /><br />
+                <button class="btn" type="submit" name="submit" id="submit" value="Login" onclick="checkChangePW()">Enter
+                </button>
+           </div>
+            
+
+    </div>
+
+
+
+
+</body>
+
+</html>

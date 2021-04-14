@@ -1,0 +1,100 @@
+#flex-container {
+    /*to make the page with responsive layout*/
+    display: flex;
+    /*make div in this container flexible*/
+    flex-wrap: wrap;
+    /*div in this container can wrap to another row when this row is not enough*/
+}
+
+.selection,
+.show {
+    width: 100%;
+}
+
+#create {
+    display: inline-block;
+    margin-right: 60px;
+}
+
+#showSelected {
+    width: 50%;
+    flex-grow: 1;
+}
+
+.insideBtn {
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    width: 90%;
+}
+
+td input {
+    width: 99%;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid lightgrey;
+    background-color: #f1f1f1;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab a {
+    background-color: inherit;
+    text-decoration: none;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: black;
+}
+
+/* Change background color of buttons on hover */
+.tab a:hover {
+    background-color: lightgrey;
+}
+
+/* Create an active/current tablink class */
+.tab a.active {
+    background-color: lightgrey;
+}
+
+.tab a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.readInput {
+    background-color: #F8F8F8;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.search {
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-flex;
+}
+
+.search input[type="submit"] {
+    margin-right: 5px;
+}
+
+tr:hover {
+    background-color: lightgrey;
+}
+
+tr input {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0px;
+}
